@@ -131,7 +131,7 @@ function updatePlot() {
 
   // Add single mousemove listener to the SVG
   svg.on("mousemove", function (event) {
-    const [mx, my] = d3.pointer(event);
+    const [mx, my] = d3.pointer(event, svg.node()); // SVG-relative coordinates
     const radius = 5;
 
     const overlapping = filtered.filter(d => {
@@ -146,19 +146,20 @@ function updatePlot() {
         `<strong>${d.Title}</strong> (${d.Year})<br>$${d.revenue}`
       ).join("<br><br>");
 
-      // STABLE tooltip position relative to mouse
-      const offsetX = -40;
-      const offsetY = -170;
+      const offsetX = 100;
+      const offsetY = -10;
 
       d3.select("#tooltip")
         .style("display", "block")
         .html(html)
-        .style("left", `${event.pageX + offsetX}px`)
-        .style("top", `${event.pageY + offsetY}px`);
+        .style("left", `${mx + offsetX}px`)
+        .style("top", `${my + offsetY}px`);
     } else {
       d3.select("#tooltip").style("display", "none");
     }
   });
+
+
 
 
 
