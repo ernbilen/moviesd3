@@ -146,18 +146,18 @@ function updatePlot() {
         `<strong>${d.Title}</strong> (${d.Year})<br>$${d.revenue}`
       ).join("<br><br>");
 
+      // STABLE tooltip position relative to mouse
+      const offsetX = -40;
+      const offsetY = -170;
+
       d3.select("#tooltip")
         .style("display", "block")
         .html(html)
-        .style("left", `${event.pageX - 50}px`)
-        .style("top", `${event.pageY - 170}px`);
+        .style("left", `${event.pageX + offsetX}px`)
+        .style("top", `${event.pageY + offsetY}px`);
     } else {
       d3.select("#tooltip").style("display", "none");
     }
-  });
-
-  svg.on("mouseout", () => {
-    d3.select("#tooltip").style("display", "none");
   });
 
 
