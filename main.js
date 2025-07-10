@@ -74,7 +74,14 @@ function updatePlot() {
   );
 
   // ✅ Safe to use filtered now
-  d3.select("#movieCount").text(`${filtered.length} movies selected`);
+  // Recreate or move the movieCount label above the plot
+  d3.select("#movieCount")
+    .style("position", "relative")
+    .style("text-align", "center")
+    .style("font-weight", "bold")
+    .style("margin-bottom", "10px")
+    .text(`${filtered.length} movies selected`);
+
 
   const x = d3.scaleLinear()
     .domain(d3.extent(filtered, d => d[xKey])).nice()
@@ -142,8 +149,8 @@ function updatePlot() {
       d3.select("#tooltip")
         .style("display", "block")
         .html(html)
-        .style("left", `${event.clientX + 40}px`)
-        .style("top", `${event.clientY - 20}px`);
+        .style("left", `${event.pageX - 50}px`)
+        .style("top", `${event.pageY - 170}px`);
     } else {
       d3.select("#tooltip").style("display", "none");
     }
