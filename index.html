@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Interactive Movie Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <div id="title">
+    <h1>An Interactive Explorer for Movie Data</h1>
+    <p>
+      Interact with the widgets on the left to query a subset of movies to plot.
+      Hover over the circles to see more information about each movie.
+    </p>
+    <p>
+      <svg viewBox="0 0 20 20" width="20" height="20"><circle r="3.5" cx="50%" cy="70%" fill="#FFA500"/></svg>
+      Won an <a href="https://www.oscars.org/oscars/ceremonies/2019" target="_blank">Oscar</a>.
+    </p>
+    <p>
+      <svg viewBox="0 0 20 20" width="20" height="20"><circle r="3.5" cx="50%" cy="70%" fill="#800080"/></svg>
+      Won a <a href="https://en.wikipedia.org/wiki/Golden_Raspberry_Awards" target="_blank">Razzie</a>.
+    </p>
+  </div>
+
+  <div id="container">
+    <div id="controls">
+      <label>X Axis:
+        <select id="xAxis"></select>
+      </label>
+      <label>Y Axis:
+        <select id="yAxis"></select>
+      </label>
+      <label>Genre:
+        <select id="genre"></select>
+      </label>
+      <label>Director contains:
+        <input type="text" id="director" />
+      </label>
+      <label>Cast contains:
+        <input type="text" id="cast" />
+      </label>
+      <label>Min Reviews:
+        <input type="range" id="reviews" min="10" max="300" value="70" step="10" />
+        <span id="reviewVal">70</span>
+      </label>
+      <label>Min Oscar Wins:
+        <input type="range" id="oscars" min="0" max="4" value="0" step="1" />
+        <span id="oscarVal">0</span>
+      </label>
+      <label>Year Range:
+        <input type="number" id="minYear" value="1970" /> -
+        <input type="number" id="maxYear" value="2014" />
+      </label>
+      <label>Min Box Office (M):
+        <input type="number" id="boxoffice" value="0" />
+      </label>
+    </div>
+
+    <div id="movieCount"></div>
+    <div id="viz">
+      <div id="tooltip"></div> <!-- must be outside any flex/grid/positioned div -->
+      <svg id="scatterplot" width="800" height="600"></svg>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
