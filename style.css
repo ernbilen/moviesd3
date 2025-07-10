@@ -53,3 +53,36 @@ label {
   max-width: 250px;
 }
 
+#controls {
+  width: 250px;
+  margin-right: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em; /* Keep spacing tight */
+}
+
+#controls,
+#controls label,
+#controls input,
+#controls select,
+#controls span {
+  font-size: 1.01em; /* Increase font size */
+}
+
+#title h1 {
+  font-size: 2.2em; /* Bigger title */
+}
+
+#title p {
+  font-size: 1.15em; /* Bigger paragraph text */
+}
+
+#title svg {
+  vertical-align: -0.01em;
+  margin-right: 4px;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+
+
