@@ -116,7 +116,7 @@ label {
   display: block;
   background: transparent;  /* no white box */
   border: none;             /* no border */
-  margin-top: -70px;        /* keep your vertical shift */
+  margin-top: -80px;        /* keep your vertical shift */
 }
 
 /* space out each line in the tooltip */
