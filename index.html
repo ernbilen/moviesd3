@@ -77,5 +77,30 @@
   </div>
 
   <script src="main.js"></script>
+  <script>
+  (function(){
+    const dash   = document.getElementById('dashboard');
+    const TARGET = 0.6;               // your desired 60% scale
+
+    function applyInverseZoom(){
+      // Try VisualViewport scale first (works in Chrome, Safari, Edge)
+      const vv       = window.visualViewport;
+      const userZoom = vv && vv.scale
+                       ? vv.scale
+                       : (window.devicePixelRatio || 1);
+      const finalScale = TARGET / userZoom;
+      dash.style.transform = 'scale(' + finalScale + ')';
+    }
+
+    // run on load
+    window.addEventListener('load', applyInverseZoom);
+    // re-apply whenever viewport/resolution changes
+    if (window.visualViewport){
+      visualViewport.addEventListener('resize', applyInverseZoom);
+    }
+    window.addEventListener('resize', applyInverseZoom);
+  })();
+</script>
+
 </body>
 </html>

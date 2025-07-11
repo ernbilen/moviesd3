@@ -1,9 +1,8 @@
 /* scale everything inside dashboard to 40% */
 #dashboard {
-  zoom: 0.6;
-  /* if you need it centered or a fixed width: */
-  width: 800px;     /* original design width */
-  margin: 0;
+  transform-origin: 0 0;
+  width: 800px;     /* your design width */
+  margin: 0;        /* top-left corner */
   background-color: white;
 }
 
