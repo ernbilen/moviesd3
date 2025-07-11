@@ -77,30 +77,37 @@
   </div>
 
   <script src="main.js"></script>
-  <script>
+<script>
   (function(){
     const dash   = document.getElementById('dashboard');
-    const TARGET = 0.6;               // your desired 60% scale
+    const TARGET = 0.6;               // target 60% scale
 
     function applyInverseZoom(){
-      // Try VisualViewport scale first (works in Chrome, Safari, Edge)
+      // detect user zoom (VisualViewport in most browsers, fallback to devicePixelRatio)
       const vv       = window.visualViewport;
-      const userZoom = vv && vv.scale
-                       ? vv.scale
-                       : (window.devicePixelRatio || 1);
+      const userZoom = (vv && vv.scale) ? vv.scale : (window.devicePixelRatio || 1);
       const finalScale = TARGET / userZoom;
       dash.style.transform = 'scale(' + finalScale + ')';
+      dash.style.transformOrigin = '0 0';
     }
 
-    // run on load
+    // apply on load and on resize
     window.addEventListener('load', applyInverseZoom);
-    // re-apply whenever viewport/resolution changes
+    window.addEventListener('resize', applyInverseZoom);
     if (window.visualViewport){
       visualViewport.addEventListener('resize', applyInverseZoom);
     }
-    window.addEventListener('resize', applyInverseZoom);
+
+    // safari-only tooltip tweak
+    const ua       = navigator.userAgent;
+    const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+    if (isSafari){
+      const tip = document.getElementById('tooltip');
+      tip.style.width = '100px';  // increase from your normal 80px
+    }
   })();
 </script>
+
 
 </body>
 </html>
