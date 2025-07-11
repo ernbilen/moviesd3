@@ -1,88 +1,125 @@
+/* scale everything inside dashboard to 40% */
+#dashboard {
+  zoom: 0.4;
+  transform-origin: 0 0;
+  background-color: white;
+}
+
+#title h1 {
+  font-size: 3em;    /* increase main heading */
+}
+
+#title p {
+  font-size: 1.25em; /* increase paragraph text */
+}
+
+#title p svg {
+  width: 1.3em;
+  height: 1.3em;
+  position: relative;     /* add this */
+  top: -0.4em;            /* tweak until it lines up */
+  margin-right: 0.4em;
+  vertical-align: middle;
+}
+
+/* page background white */
 body {
   font-family: "Libre Baskerville", sans-serif;
   margin: 0;
-  background: #fafafa;
+  background-color: white;
 }
 
 #title {
   margin: 2em;
+  background-color: white;
 }
 
 #container {
   display: flex;
   margin: 2em;
+  background-color: white;
 }
 
 #controls {
-  width: 250px;
+  width: 300px;
   margin-right: 2em;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.6em;
+  font-size: 1.01em;
+  background-color: white;
+}
+
+#controls label,
+#controls input,
+#controls select,
+#controls span {
+  font-size: 1em;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9em;
 }
 
 #viz {
   flex-grow: 1;
   position: relative;
+  background-color: white;
 }
 
 #movieCount {
-  font-size: 1em;
   font-weight: bold;
-  margin-bottom: 1em; /* gives space below */
-  margin-top: 0.5em;   /* optional space above */
-}
-
-
-label {
-  font-size: 0.9em;
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  top: -60px;     /* adjust to shift up */
+  margin-bottom: 1em;
 }
 
 #tooltip {
   position: fixed;
-  z-index: 1000;
   pointer-events: none;
   display: none;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0, 0, 0, 0.85);
   color: white;
-  padding: 6px 10px;
+  font-size: 0.6em;
+  width: 110px;            /* fixed width for consistent wrapping */
+  box-sizing: border-box;  /* include padding in that 150px */
+  padding: 3px 5px;        /* uniform inset */
   border-radius: 4px;
-  font-size: 0.85em;
-  max-width: 250px;
+  line-height: 1.2;        /* tighter line spacing */
+  z-index: 1000;
 }
 
-#controls {
-  width: 250px;
-  margin-right: 2em;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6em; /* Keep spacing tight */
+#tooltip p {
+  margin: 0;               /* no extra margin inside container */
 }
 
-#controls,
-#controls label,
-#controls input,
-#controls select,
-#controls span {
-  font-size: 1.01em; /* Increase font size */
+#tooltip p + p {
+  margin-top: 4px;         /* consistent gap between items */
 }
 
-#title h1 {
-  font-size: 2.2em; /* Bigger title */
+
+#scatterplot {
+  width: 30%;
+  height: auto;
+  display: block;
+  background: transparent;  /* no white box */
+  border: none;             /* no border */
+  margin-top: -70px;        /* keep your vertical shift */
 }
 
-#title p {
-  font-size: 1.15em; /* Bigger paragraph text */
+/* space out each line in the tooltip */
+#tooltip p {
+  margin: 4px 0;
 }
 
-#title svg {
-  vertical-align: -0.01em;
-  margin-right: 4px;
-  width: 1.2em;
-  height: 1.2em;
+#controls select {
+  /* scales both the closed dropdown and its options list */
+  zoom: 1.2;         
+  transform-origin: 0 0; 
 }
+
 
 
 
