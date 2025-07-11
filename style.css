@@ -1,7 +1,9 @@
 /* scale everything inside dashboard to 40% */
 #dashboard {
   zoom: 0.4;
-  transform-origin: 0 0;
+  /* if you need it centered or a fixed width: */
+  width: 800px;     /* original design width */
+  margin: 0;
   background-color: white;
 }
 
@@ -20,6 +22,15 @@
   top: -0.4em;            /* tweak until it lines up */
   margin-right: 0.4em;
   vertical-align: middle;
+}
+
+#title {
+  /* keep your existing margins */
+  margin: 2em;
+  /* make it wider so the text wraps less */
+  width: 1000px;
+  /* or use max-width if you’d rather */
+  /* max-width: 1000px; */
 }
 
 /* page background white */
@@ -82,10 +93,10 @@ label {
   display: none;
   background: rgba(0, 0, 0, 0.85);
   color: white;
-  font-size: 0.6em;
-  width: 110px;            /* fixed width for consistent wrapping */
+  font-size: 0.4em;
+  width: 80px;            /* fixed width for consistent wrapping */
   box-sizing: border-box;  /* include padding in that 150px */
-  padding: 3px 5px;        /* uniform inset */
+  padding: 0px 3px;        /* uniform inset */
   border-radius: 4px;
   line-height: 1.2;        /* tighter line spacing */
   z-index: 1000;
@@ -101,7 +112,7 @@ label {
 
 
 #scatterplot {
-  width: 30%;
+  width: 210%;
   height: auto;
   display: block;
   background: transparent;  /* no white box */
@@ -116,7 +127,7 @@ label {
 
 #controls select {
   /* scales both the closed dropdown and its options list */
-  zoom: 1.2;         
+  zoom: 1;         
   transform-origin: 0 0; 
 }
 
